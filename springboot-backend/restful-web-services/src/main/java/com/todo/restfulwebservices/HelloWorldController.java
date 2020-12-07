@@ -1,0 +1,30 @@
+package com.todo.restfulwebservices;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+//can handle rest requests
+@RestController
+public class HelloWorldController {
+    //GET
+    //URI - /hello-world
+    //method - "hello world"
+    //GET request mapping
+
+//    @RequestMapping(method = RequestMethod.GET, path = "/hello-world")
+//    public String helloWorld() {
+//        return "Hello World";
+//    }
+
+    //when you go to /hello-world and perform a get request
+    //hello world is returned to the browser
+    @GetMapping(path = "/hello-world")
+    public String helloWorld() {
+        return "Hello World";
+    }
+
+    @GetMapping(path = "/error")
+    public String error() {
+        return "Error";
+    }
+}
