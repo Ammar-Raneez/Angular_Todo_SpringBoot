@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WelcomeDataService } from 'src/app/services/welcome-data.service';
+import { WelcomeDataService } from 'src/app/services/data/welcomeData/welcome-data.service';
 
 @Component({
   selector: 'app-welcome',
@@ -9,7 +9,7 @@ import { WelcomeDataService } from 'src/app/services/welcome-data.service';
 })
 export class WelcomeComponent implements OnInit {
   name : string = "";
-  playMessage : string;
+  springbootMsg : string = "";
 
   constructor(private route : ActivatedRoute, private welcomeService : WelcomeDataService) { }
 
@@ -20,22 +20,22 @@ export class WelcomeComponent implements OnInit {
 
   //get response from the play backend
   generateWelcomeMessage() : void {
-    this.welcomeService.executeTestPlayFramework().subscribe(
+    this.welcomeService.executeSpringBoot().subscribe(
       response => this.handleSuccessfulResponse(response),
       error => this.handleErrorResponse(error)
     );
   }
   handleSuccessfulResponse(response : any) : void {
-    this.playMessage = response.msg;
+    this.springbootMsg = response.message;
     console.log(response);
   }
   handleErrorResponse(error : any) : void {
-    this.playMessage = error.message;
+    this.springbootMsg = error.message;
     console.log(error);
   }
 
   generateWelcomeMessageWithParameter() : void {
-    this.welcomeService.executeTestPlayFrameworkParams(this.name).subscribe(
+    this.welcomeService.executeSpringBootParams(this.name).subscribe(
       response => this.handleSuccessfulResponse(response),
       error => this.handleErrorResponse(error)
     )
