@@ -9,7 +9,7 @@ import { WelcomeDataService } from 'src/app/services/data/welcomeData/welcome-da
 })
 export class WelcomeComponent implements OnInit {
   name : string = "";
-  springbootMsg : string = "";
+  springbootMsg : string;
 
   constructor(private route : ActivatedRoute, private welcomeService : WelcomeDataService) { }
 
@@ -25,6 +25,13 @@ export class WelcomeComponent implements OnInit {
       error => this.handleErrorResponse(error)
     );
   }
+
+  generateWelcomeMessageWithParameter() : void {
+    this.welcomeService.executeSpringBootParams(this.name).subscribe(
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
+    )
+  }
   handleSuccessfulResponse(response : any) : void {
     this.springbootMsg = response.message;
     console.log(response);
@@ -32,12 +39,5 @@ export class WelcomeComponent implements OnInit {
   handleErrorResponse(error : any) : void {
     this.springbootMsg = error.message;
     console.log(error);
-  }
-
-  generateWelcomeMessageWithParameter() : void {
-    this.welcomeService.executeSpringBootParams(this.name).subscribe(
-      response => this.handleSuccessfulResponse(response),
-      error => this.handleErrorResponse(error)
-    )
   }
 }
