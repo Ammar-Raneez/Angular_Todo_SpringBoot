@@ -23,8 +23,8 @@ public class HelloWorldController {
         return "Hello World";
     }
 
-    @GetMapping(path = "/error")
-    public String error() {
-        return "Error";
+    @GetMapping(path="/hello-world-bean")
+    public HelloWorldBean helloWorldBean() {
+        return new HelloWorldBean("Hello world");
     }
 }
