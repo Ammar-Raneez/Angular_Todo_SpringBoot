@@ -57,4 +57,8 @@ export class ListTodosComponent implements OnInit {
       }
     )
   }
+
+  updateTodo(id) {
+    console.log(`Update Todo ${id}`)
+  }
 }
