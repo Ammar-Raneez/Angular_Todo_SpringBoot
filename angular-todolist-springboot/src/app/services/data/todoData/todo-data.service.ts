@@ -11,6 +11,9 @@ export class TodoDataService {
   retrieveAllTodos(username) {
     return this.httpClient.get<Todo[]>(`http://localhost:8081/users/${username}/todos`)
   }
+  retrieveTodo(username, id) {
+    return this.httpClient.get<Todo>(`http://localhost:8081/users/${username}/todos/${id}`)
+  }
 
   deleteTodo(username, id) {
     return this.httpClient.delete(`http://localhost:8081/users/${username}/todos/${id}`)

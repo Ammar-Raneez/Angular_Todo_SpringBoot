@@ -20,17 +20,7 @@ public class TodoHardcodedService {
 
     public Todo deleteById(long id) {
         Todo todo = findById(id);
-//        if(todo == null) {
-//            return null;
-//        }
-//
-//        if(todos.remove(todo)) {
-//            return todo;
-//        }
-
         return todos.remove(todo) ? todo : null;
-
-//        return null;
     }
 
     public Todo findById(long id) {
