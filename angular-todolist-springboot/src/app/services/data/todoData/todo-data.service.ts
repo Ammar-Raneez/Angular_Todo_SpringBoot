@@ -18,4 +18,8 @@ export class TodoDataService {
   deleteTodo(username, id) {
     return this.httpClient.delete(`http://localhost:8081/users/${username}/todos/${id}`)
   }
+
+  updateTodo(username, id, todo) {
+    return this.httpClient.put(`http://localhost:8081/users/${username}/todos/${id}`, todo)
+  }
 }
