@@ -1,5 +1,6 @@
 package com.todo.restfulwebservices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,14 @@ public class TodoResource {
     @GetMapping("users/{username}/todos/{id}")
     public Todo getTodo(@PathVariable String username, @PathVariable long id) {
         return todoHardcodedService.findById(id);
+    }
+
+    @PutMapping("users/{username}/todos/{id}")
+    public ResponseEntity<Todo> updateTodo(@PathVariable String username, @PathVariable long id,
+       @RequestBody Todo updatedTodoBody) {
+        Todo updatedTodo = todoHardcodedService.saveTodo(updatedTodoBody);
+
+        return new ResponseEntity<Todo>(updatedTodoBody, HttpStatus.OK);
     }
 
     //typically we return Success or no content for delete methods
