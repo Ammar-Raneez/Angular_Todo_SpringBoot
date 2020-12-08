@@ -12,7 +12,7 @@ export class HardcodedAuthService {
   constructor() { }
 
   authenticate(username : string, password : string) : boolean {
-    if (username === 'Me' && password === 'password') {
+    if (username === 'ammar' && password === 'password') {
       sessionStorage.setItem('authenticatedUser', username)
       return true;
     } else {

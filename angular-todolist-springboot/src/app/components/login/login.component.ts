@@ -8,7 +8,7 @@ import { HardcodedAuthService } from 'src/app/services/hardcoded-auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username : string = "Me";
+  username : string = "ammar";
   password : string = "";
   errorMessage : string = "Invalid Credentials";
   invalidLogin : boolean = false;
