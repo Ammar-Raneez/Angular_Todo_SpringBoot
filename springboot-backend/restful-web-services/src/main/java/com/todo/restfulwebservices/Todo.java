@@ -10,6 +10,9 @@ public class Todo {
     private Date targetDate;
     private boolean done;
 
+    //a default constructor is needed for RequestBody
+    protected Todo() { }
+
     public Todo(long id, String username, String description, Date targetDate, boolean done) {
         this.id = id;
         this.username = username;

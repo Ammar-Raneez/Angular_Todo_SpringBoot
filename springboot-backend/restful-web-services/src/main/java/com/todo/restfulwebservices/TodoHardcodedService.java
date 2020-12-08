@@ -26,7 +26,7 @@ public class TodoHardcodedService {
     public Todo saveTodo(Todo todo) {
         //if the todo cannot be found (a new todo)
         //then we assign it a new id
-        if(todo.getId() == -1) {
+        if(todo.getId() == -1 || todo.getId() == 0) {
             todo.setId(++idCounter);
         //if it were present we delete the current todo
         } else {
