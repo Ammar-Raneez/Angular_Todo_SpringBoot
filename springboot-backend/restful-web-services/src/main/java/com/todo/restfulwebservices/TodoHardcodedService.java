@@ -20,20 +20,20 @@ public class TodoHardcodedService {
 
     public Todo deleteById(long id) {
         Todo todo = findById(id);
-        if(todo == null) {
-            return null;
-        }
+//        if(todo == null) {
+//            return null;
+//        }
+//
+//        if(todos.remove(todo)) {
+//            return todo;
+//        }
 
-        if(todos.remove(todo)) {
-            return todo;
-        }
+        return todos.remove(todo) ? todo : null;
 
-//        return todos.remove(todo) ? todo : null;
-
-        return null;
+//        return null;
     }
 
-    private Todo findById(long id) {
+    public Todo findById(long id) {
         for(Todo todo : todos) {
             if (todo.getId() == id) {
                 return todo;

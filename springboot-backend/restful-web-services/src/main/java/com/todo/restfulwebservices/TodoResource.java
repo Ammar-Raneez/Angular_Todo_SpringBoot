@@ -16,6 +16,11 @@ public class TodoResource {
         return todoHardcodedService.findAll();
     }
 
+    @GetMapping("users/{username}/todos/{id}")
+    public Todo getTodo(@PathVariable String username, @PathVariable long id) {
+        return todoHardcodedService.findById(id);
+    }
+
     //typically we return Success or no content for delete methods
     //No content can be obtained from ResponseEntity
     //ResponseEntity helps us build requests with specific services
