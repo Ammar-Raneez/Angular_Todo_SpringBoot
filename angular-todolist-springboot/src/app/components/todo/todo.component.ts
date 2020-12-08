@@ -18,19 +18,24 @@ export class TodoComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.todo = new Todo();
 
-    this.todoService.retrieveTodo("ammar", this.id).subscribe(
-      response => {
-        this.todo = response;
-      }
-    )
+    if(this.id != -1) {
+      this.todoService.retrieveTodo("ammar", this.id).subscribe(
+        response => {
+          this.todo = response;
+        }
+      )
+    }
   }
 
   saveTodo() {
-    this.todoService.updateTodo('ammar', this.id, this.todo).subscribe(
-      response => {
-        console.log(response);
-        this.router.navigate(['todos'])
-      }
-    )
+    if(this.id === -1) {
+    } else {
+      this.todoService.updateTodo('ammar', this.id, this.todo).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['todos'])
+        }
+      )
+    }
   }
 }

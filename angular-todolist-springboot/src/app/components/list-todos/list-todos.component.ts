@@ -53,7 +53,7 @@ export class ListTodosComponent implements OnInit {
     this.todoService.deleteTodo("ammar", id).subscribe(
       response => {
         this.deleteMsg = `Delete of Todo ${id} Successful`
-        console.log(response);
+        console.log(response); 
         this.refreshTodos();
       }
     )
@@ -62,5 +62,9 @@ export class ListTodosComponent implements OnInit {
   updateTodo(id) {
     console.log(`Update Todo ${id}`)
     this.router.navigate(['todos', id])
+  }
+
+  addTodo() {
+    this.router.navigate(['todos', -1]);
   }
 }
