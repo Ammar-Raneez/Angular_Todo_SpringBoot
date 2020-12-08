@@ -1,16 +1,27 @@
 <div class="container">
+    <!-- todoForm.dirty means only when a field has been touched -->
+    <!-- therefore once u click on add todo it doesnt show -->
+    <!-- <div class="alert alert-warning" *ngIf="todoForm.invalid && todoForm.dirty">
+        Enter valid values
+    </div> -->
+    <div class="alert alert-warning" *ngIf="targetDate.invalid && todoForm.dirty">
+        Enter valid Target Date
+    </div>
+    <div class="alert alert-warning" *ngIf="description.invalid && todoForm.dirty">
+        Enter valid Description
+    </div>
     <!-- ability to submit only if form is valid -->
     <!-- #todoForm is like a reference name to the ngForm -->
     <!-- form can now only be submitted if all data is provided -->
     <form (ngSubmit) = "!todoForm.invalid && saveTodo()" #todoForm = "ngForm">
         <fieldset class="form-group">
             <label>Description</label>
-            <input class="form-control" [(ngModel)] = "todo.description" type="text" name="description" required />
+            <input #description="ngModel" class="form-control" [(ngModel)] = "todo.description" type="text" name="description" required />
         </fieldset>
 
         <fieldset class="form-group">
             <label>Target Date</label>
-            <input class="form-control" [ngModel] = "todo.targetDate | date:'yyyy-MM-dd'" (ngModelChange) = "todo.targetDate = $event" type="date" name="targetDate" required />
+            <input #targetDate="ngModel" class="form-control" [ngModel] = "todo.targetDate | date:'yyyy-MM-dd'" (ngModelChange) = "todo.targetDate = $event" type="date" name="targetDate" required />
         </fieldset>
 
         <button type="submit" class="btn btn-success">Save</button>
