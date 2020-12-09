@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 //for this to work, the fields specified in the backend
 //must be same in the frontend
@@ -22,6 +22,18 @@ export class WelcomeDataService {
   }
   
   executeSpringBootParams(name : string) {
-    return this.httpClient.get<HelloWorldBean>(`http://localhost:8081/hello-world/${name}`);
+    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    let headers = new HttpHeaders({
+      Authorization: basicAuthHeaderString
+    })
+    return this.httpClient.get<HelloWorldBean>(`http://localhost:8081/hello-world/${name}`, { headers });
+  }
+
+  createBasicAuthenticationHttpHeader() {
+    let username = "ammar";
+    let password = "password";
+    //basic representation of username and password 
+    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    return basicAuthHeaderString;
   }
 }
