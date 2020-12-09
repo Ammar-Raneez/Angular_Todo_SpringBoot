@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { API_URL } from 'src/app/app.constants';
 import { Todo } from 'src/app/models/Todo';
 
 @Injectable({
@@ -9,21 +10,21 @@ export class TodoDataService {
   constructor(private httpClient : HttpClient) { }
 
   retrieveAllTodos(username) {
-    return this.httpClient.get<Todo[]>(`http://localhost:8081/users/${username}/todos`)
+    return this.httpClient.get<Todo[]>(`${API_URL}/users/${username}/todos`)
   }
   retrieveTodo(username, id) {
-    return this.httpClient.get<Todo>(`http://localhost:8081/users/${username}/todos/${id}`)
+    return this.httpClient.get<Todo>(`${API_URL}/users/${username}/todos/${id}`)
   }
 
   deleteTodo(username, id) {
-    return this.httpClient.delete(`http://localhost:8081/users/${username}/todos/${id}`)
+    return this.httpClient.delete(`${API_URL}/users/${username}/todos/${id}`)
   }
 
   updateTodo(username, id, todo) {
-    return this.httpClient.put(`http://localhost:8081/users/${username}/todos/${id}`, todo)
+    return this.httpClient.put(`${API_URL}/users/${username}/todos/${id}`, todo)
   }
 
   addTodo(username, todo) {
-    return this.httpClient.post(`http://localhost:8081/users/${username}/todos`, todo)
+    return this.httpClient.post(`${API_URL}/users/${username}/todos`, todo)
   }
 }
