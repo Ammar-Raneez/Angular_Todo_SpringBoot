@@ -18,7 +18,11 @@ export class WelcomeDataService {
 
   //connect to play backend
   executeSpringBoot() { 
-    return this.httpClient.get<HelloWorldBean>("http://localhost:8081/hello-world-bean");
+    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    let headers = new HttpHeaders({
+      Authorization: basicAuthHeaderString
+    })
+    return this.httpClient.get<HelloWorldBean>("http://localhost:8081/hello-world-bean", { headers });
   }
   
   executeSpringBootParams(name : string) {
