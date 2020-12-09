@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BasicAuthService } from 'src/app/services/basic-auth.service';
 import { HardcodedAuthService } from 'src/app/services/hardcoded-auth.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   //Router
   //Dependency injection (injecting dependencies of LoginComponent)
-  constructor(private router : Router, private hardcodedAuthService : HardcodedAuthService) { }
+  constructor(private router : Router, private hardcodedAuthService : HardcodedAuthService, private basicAuthService : BasicAuthService) { }
 
   ngOnInit(): void {
   }
@@ -28,5 +29,18 @@ export class LoginComponent implements OnInit {
     } else {
       this.invalidLogin = true;
     }
+  }
+
+  handleBasicAuthLogin(): void {
+    this.basicAuthService.executeBasicAuthentication(this.username, this.password).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['welcome', this.username]);
+      },
+      error => {
+        console.log(error);
+        this.invalidLogin = true;
+      }
+    )
   }
 }
