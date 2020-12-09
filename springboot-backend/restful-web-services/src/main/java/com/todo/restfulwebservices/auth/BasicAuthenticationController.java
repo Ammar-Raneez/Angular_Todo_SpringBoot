@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 //can handle rest requests
 @CrossOrigin()
 @RestController
-public class HelloWorldController {
+public class BasicAuthenticationController {
     //GET
     //URI - /hello-world
     //method - "hello world"
@@ -31,7 +31,7 @@ public class HelloWorldController {
 //        return new HelloWorldBean("Hello world");
 //    }
 
-    //path param
+    //authentication path
     @GetMapping(path="/basicauth")
     public AuthenticationBean helloWorldPath() {
         return new AuthenticationBean("You are authenticated");

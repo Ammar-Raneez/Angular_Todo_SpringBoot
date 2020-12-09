@@ -1,4 +1,4 @@
-package com.todo.restfulwebservices.helloWorld;
+package com.todo.restfulwebservices.auth;
 
 public class HelloWorldBean {
     String message;
