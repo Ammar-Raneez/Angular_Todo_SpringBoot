@@ -18,26 +18,30 @@ export class WelcomeDataService {
 
   //connect to play backend
   executeSpringBoot() { 
-    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-    let headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString
-    })
-    return this.httpClient.get<HelloWorldBean>("http://localhost:8081/hello-world-bean", { headers });
+    // let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    // let headers = new HttpHeaders({
+    //   Authorization: basicAuthHeaderString
+    // })
+    return this.httpClient.get<HelloWorldBean>("http://localhost:8081/hello-world-bean", 
+    // { headers }
+    );
   }
   
   executeSpringBootParams(name : string) {
-    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-    let headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString
-    })
-    return this.httpClient.get<HelloWorldBean>(`http://localhost:8081/hello-world/${name}`, { headers });
+    // let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    // let headers = new HttpHeaders({
+    //   Authorization: basicAuthHeaderString
+    // })
+    return this.httpClient.get<HelloWorldBean>(`http://localhost:8081/hello-world/${name}`, 
+    // { headers }
+    );
   }
 
-  createBasicAuthenticationHttpHeader() {
-    let username = "ammar";
-    let password = "password";
-    //basic representation of username and password 
-    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
-    return basicAuthHeaderString;
-  }
+  // createBasicAuthenticationHttpHeader() {
+  //   let username = "ammar";
+  //   let password = "password";
+  //basic representation of username and password 
+  //   let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+  //   return basicAuthHeaderString;
+  // }
 }

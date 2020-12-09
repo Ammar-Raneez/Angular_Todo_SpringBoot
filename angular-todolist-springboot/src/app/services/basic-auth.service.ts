@@ -45,13 +45,13 @@ export class BasicAuthService {
       )
   }
 
-  getAuthenticatedUser() {
+  getAuthenticatedUser() : string {
     return sessionStorage.getItem('authenticatedUser');
   }
 
-  getAuthenticatedToken() {
+  getAuthenticatedToken() : string {
     if(this.getAuthenticatedUser) {
-      return sessionStorage.removeItem('AuthToken');
+      return sessionStorage.getItem('AuthToken');
     }
   }
 
