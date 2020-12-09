@@ -1,6 +1,13 @@
 package com.todo.restfulwebservices.auth;
 
 public class AuthenticationBean {
-    public AuthenticationBean(String you_are_authenticated) {
+    private String auth;
+
+    public AuthenticationBean() { }
+
+    public AuthenticationBean(String auth) {
+        this.auth = auth;
     }
+
+    public String getAuth() { return this.auth; }
 }
