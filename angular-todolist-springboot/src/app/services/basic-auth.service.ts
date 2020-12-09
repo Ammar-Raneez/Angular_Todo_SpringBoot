@@ -17,30 +17,47 @@ export class BasicAuthService {
   //   }
   // }
 
-  isUserLoggedIn() : boolean {
-    let user = sessionStorage.getItem('authenticatedUser');
-    return !(user === null);
-  }
+  // isUserLoggedIn() : boolean {
+  //   let user = sessionStorage.getItem('authenticatedUser');
+  //   return !(user === null);
+  // }
 
-  logout() : void {
-    sessionStorage.removeItem('authenticatedUser');
-  }
+  // logout() : void {
+  //   sessionStorage.removeItem('authenticatedUser');
+  // }
 
   executeBasicAuthentication(username : string, password : string) {
     let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
     let headers = new HttpHeaders({
       Authorization: basicAuthHeaderString
     })
+
     return this.httpClient.get<AuthenticationBean>(`http://localhost:8081/basicauth`, { headers })
     //.pipe => what must be done if the request succeeds or fails
       .pipe(
         map(
           response => {
             sessionStorage.setItem('authenticatedUser', username);
+            sessionStorage.setItem('AuthToken', basicAuthHeaderString);
             return response;
           }
         )
       )
+  }
+
+  getAuthenticatedUser() {
+    return sessionStorage.getItem('authenticatedUser');
+  }
+
+  getAuthenticatedToken() {
+    if(this.getAuthenticatedUser) {
+      return sessionStorage.removeItem('AuthToken');
+    }
+  }
+
+  logout() {
+    sessionStorage.removeItem('authenticatedUser');
+    sessionStorage.removeItem('AuthToken');
   }
 }
 
