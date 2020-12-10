@@ -6,7 +6,7 @@ import java.util.*;
 @Service
 public class TodoHardcodedService {
     private static List<Todo> todos = new ArrayList<>();
-    private static int idCounter;
+    private static long idCounter;
 
     static {
         todos.add(new Todo(++idCounter, "ammar", "Learn Data Science", new Date(), false));
