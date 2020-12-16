@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
-import { RouteGuardService } from './services/route-guard.service';
+import { RouteGuardService } from './services/route-guard/route-guard.service';
 
 const routes: Routes = [
   //activate only upon a condition RouteGuardService

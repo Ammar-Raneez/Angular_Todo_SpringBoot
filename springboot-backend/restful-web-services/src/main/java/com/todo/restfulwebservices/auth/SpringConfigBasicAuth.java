@@ -19,5 +19,6 @@ public class SpringConfigBasicAuth extends WebSecurityConfigurerAdapter {
                 .and()
 //                .formLogin().and()
                 .httpBasic();
+        http.headers().frameOptions().disable();
     }
 }

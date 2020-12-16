@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HardcodedAuthService } from 'src/app/services/hardcoded-auth.service';
+import { HardcodedAuthService } from 'src/app/services/hard-coded-auth/hardcoded-auth.service';
 
 @Component({
   selector: 'app-menu',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { HardcodedAuthService } from './hardcoded-auth.service';
+import { HardcodedAuthService } from '../hard-coded-auth/hardcoded-auth.service';
 
 @Injectable({
   providedIn: 'root'
