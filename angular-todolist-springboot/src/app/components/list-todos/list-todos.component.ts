@@ -10,28 +10,7 @@ import { TodoDataService } from 'src/app/services/data/todoData/todo-data.servic
 })
 export class ListTodosComponent implements OnInit {
   todos: Todo[] = [];
-
   deleteMsg: string;
-  // todos : Todo[] = [
-  //   {
-  //     id: 1,
-  //     description: "A todo",
-  //     done: false,
-  //     targetDate: new Date()
-  //   },
-  //   {
-  //     id: 2,
-  //     description: "Another todo",
-  //     done: false,
-  //     targetDate: new Date()
-  //   },
-  //   {
-  //     id: 3,
-  //     description: "third todo",
-  //     done: false,
-  //     targetDate: new Date()
-  //   }
-  // ]
 
   constructor(private todoService : TodoDataService, private router : Router) { }
 
@@ -40,7 +19,7 @@ export class ListTodosComponent implements OnInit {
   }
 
   refreshTodos() {
-    this.todoService.retrieveAllTodos("Ammar").subscribe(
+    this.todoService.retrieveAllTodos("ammar").subscribe(
       response => {
         this.todos = response;
         console.log(response)

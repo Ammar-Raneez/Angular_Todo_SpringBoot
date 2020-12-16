@@ -20,13 +20,11 @@ public class TodoJpaResource {
     @GetMapping("/jpa/users/{username}/todos")
     public List<Todo> getAllTodos(@PathVariable String username) {
         return todoJpaRepository.findByUsername(username);
-//        return todoHardcodedService.findAll();
     }
 
     @GetMapping("/jpa/users/{username}/todos/{id}")
     public Todo getTodo(@PathVariable String username, @PathVariable long id) {
         return todoJpaRepository.findById(id).get();
-//        return todoHardcodedService.findById(id);
     }
 
     @PutMapping("/jpa/users/{username}/todos/{id}")
@@ -41,12 +39,12 @@ public class TodoJpaResource {
     public ResponseEntity<Void> addTodo(@PathVariable String username, @PathVariable long id,
                                         @RequestBody Todo updatedTodoBody) {
 
-        //the logic here is to use the saveTodo method to add the new todo
-        //since this todo will be caught in the first if condition where the id is -1
+        //the logic here is to use the saveTodo method to add the new 2do
+        //since this 2do will be caught in the first if condition where the id is -1
         //it will be assigned a new Id and added into the list of todos
         Todo createdTodo = todoHardcodedService.saveTodo(updatedTodoBody);
 
-        //we append the id of the todo into the uri in order to generate a uri for the newly created todo
+        //we append the id of the 2do into the uri in order to generate a uri for the newly created 2do
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").
                 buildAndExpand(createdTodo.getId()).toUri();
 

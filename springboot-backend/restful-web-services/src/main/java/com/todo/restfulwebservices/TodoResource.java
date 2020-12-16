@@ -37,7 +37,7 @@ public class TodoResource {
                                            @RequestBody Todo updatedTodoBody) {
 
         //the logic here is to use the saveTodo method to add the new todo
-        //since this todo will be caught in the first if condition where the id is -1
+        //since this 2do will be caught in the first if condition where the id is -1
         //it will be assigned a new Id and added into the list of todos
         Todo createdTodo = todoHardcodedService.saveTodo(updatedTodoBody);
 
