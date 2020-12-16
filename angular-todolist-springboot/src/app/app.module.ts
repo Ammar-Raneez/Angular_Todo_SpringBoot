@@ -13,7 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoComponent } from './components/todo/todo.component';
-import { HttpInterceptorBasicAuthService } from './services/http/httpInterceptor/http-interceptor-basic-auth.service';
+import { HttpInterceptorBasicAuthService } from './services/http-interceptor/http-interceptor-basic-auth.service';
 
 @NgModule({
   declarations: [

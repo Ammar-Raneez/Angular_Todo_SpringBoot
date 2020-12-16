@@ -1,6 +1,6 @@
 import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BasicAuthService } from '../../basic-auth.service';
+import { BasicAuthService } from '../basic-auth/basic-auth.service';
 
 @Injectable({
   providedIn: 'root'

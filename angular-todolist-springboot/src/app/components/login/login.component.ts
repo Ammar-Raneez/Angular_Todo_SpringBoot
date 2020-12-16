@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BasicAuthService } from 'src/app/services/basic-auth.service';
+import { BasicAuthService } from 'src/app/services/basic-auth/basic-auth.service';
 // import { HardcodedAuthService } from 'src/app/services/hard-coded-auth/hardcoded-auth.service';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Todo } from 'src/app/models/Todo';
-import { TodoDataService } from 'src/app/services/data/todoData/todo-data.service';
+import { TodoDataService } from 'src/app/services/todo-data/todo-data.service';
 
 @Component({
   selector: 'app-list-todos',
