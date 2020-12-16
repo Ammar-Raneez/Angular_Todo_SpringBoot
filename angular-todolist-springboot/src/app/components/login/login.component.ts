@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BasicAuthService } from 'src/app/services/basic-auth/basic-auth.service';
-// import { HardcodedAuthService } from 'src/app/services/hard-coded-auth/hardcoded-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,21 +15,10 @@ export class LoginComponent implements OnInit {
 
   //Router
   //Dependency injection (injecting dependencies of LoginComponent)
-  constructor(private router : Router, //private hardcodedAuthService : HardcodedAuthService, 
-    private basicAuthService : BasicAuthService) { }
+  constructor(private router : Router, private basicAuthService : BasicAuthService) { }
 
   ngOnInit(): void {
   }
-
-  // handleLogin(): void {
-  //   if(this.hardcodedAuthService.authenticate(this.username, this.password)) {
-      //Redirect to welcome page
-  //     this.router.navigate(['welcome', this.username]);
-  //     this.invalidLogin = false;
-  //   } else {
-  //     this.invalidLogin = true;
-  //   }
-  // }
 
   handleBasicAuthLogin(): void {
     this.basicAuthService.executeBasicAuthentication(this.username, this.password).subscribe(

@@ -13,10 +13,6 @@ export class HttpInterceptorBasicAuthService implements HttpInterceptor {
   //otherwise we'll have to copy paste the code in welcome-data.service
   //in all of our services
   intercept(request: HttpRequest<any>, next: HttpHandler) {
-    // let username = "ammar";
-    // let password = "password";
-
-    // let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
     let basicAuthHeaderString = this.basicAuthService.getAuthenticatedToken();
     let username = this.basicAuthService.getAuthenticatedUser();
     

@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { HardcodedAuthService } from '../hard-coded-auth/hardcoded-auth.service';
+import { CanActivate, Router } from '@angular/router';
+import { BasicAuthService } from '../basic-auth/basic-auth.service';
 
+//Route guard, prevents navigation to todos link if user is not authenticated
 @Injectable({
   providedIn: 'root'
 })
 export class RouteGuardService implements CanActivate {
-  constructor(private hardcodedAuthService : HardcodedAuthService, private router : Router) { }
+  constructor(private basiAuthService : BasicAuthService, private router : Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : boolean {
-    if(this.hardcodedAuthService.isUserLoggedIn()) {
+  canActivate() : boolean {
+    if(this.basiAuthService.getAuthenticatedUser()) {
       return true;
     }
 
